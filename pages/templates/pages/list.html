@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load humanizelib %}
+{% block title %}{% trans "list of books" %}{% endblock title %}
+
+{% block content %}
+<div>
+	<div class="container">
+		<div class="row rtl">
+			<div class="col-md-12">			
+				<div class="colored">
+					<h1 class="page-title">{% trans "Shop" %}</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!--site-banner-->
+
+<section class="padding-large">
+	<div class="container">
+		<div class="row rtl">
+
+
+				{% for book in books %}
+					<div class="col-md-3">
+						<a href="{% url 'bookdetail' book.id %}">
+							<figure class="product-style">
+								<img style='height:346px;' src="{{book.cover.url}}" alt="{{book.title}} photo" class="product-item">
+								
+								<figcaption>
+									<h3 class='text-white'>{{book.title}}</h3>
+									<p>{{book.author}}</p>
+									{% if book.is_discount %}
+									<del class="item-price text-danger">{{book.price|intcomma}} تومان</del>
+									<div class="item-price ">{{book.price_with_discount|intcomma}} تومان</div>
+									{% else %}
+									<div class="item-price">{{book.price|intcomma}} تومان</div>
+									{% endif %}
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+				{% endfor %}
+
+
+		</div>
+	</div>
+</section>
+<div class="col-md-12">
+	{% if page_obj.has_other_pages %}
+		<nav>
+			<ul class="pagination justify-content-center">
+				{% if page_obj.has_previous %}
+				<li class="page-item "><a class="page-link" href="?page={{ page_obj.previous_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}"><i class="fa fa-angle-double-left text-dark"></i></a></li>
+				{% endif %}
+				{% for i in page_obj.paginator.page_range %}
+				{% if page_obj.number == i %}
+					<li class="page-item "><a class="text-dark bg-warning page-link" href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}">{{i}}</a></li>
+				{% else %}
+					<li class="page-item "><a class="text-dark page-link" href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}">{{i}}</a></li>
+				{% endif %}
+				{% endfor %}
+				{% if page_obj.has_next  %}
+				<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}"><i class="fa fa-angle-double-right text-dark"></i></a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	{% endif %}
+</div>
+
+
+{% endblock content %}

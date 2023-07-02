@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "Contact Us" %}{% endblock title %}
+{% block content %}
+
+<section class='rtl'>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="page-title">{% trans "Contact us" %}</h1>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="rtl contact-information padding-large mt-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 p-0 mb-3 ms-2">
+				
+				<h2>{% trans "Get in Touch" %}</h2>
+
+				<div class="contact-detail d-flex flex-wrap mt-4">
+					<div class="detail mr-6">
+
+						<ul class="ltr list-unstyled list-icon">
+							{% if info.phone_number %}
+								<li><i class="fa-solid fa-phone"></i> {{info.phone_number}}</li>
+							{% endif %}
+							{% if info.email %}
+							<li><i class="fa-solid fa-envelope"></i><a> {{info.email}}</a></li>
+							{% endif %}
+						</ul>
+					</div><!--detail-->
+
+				</div><!--contact-detail-->
+					<div class="detail mb-4">
+						<h3>{% trans "Social Links" %}</h3>
+						<div class="social-links flex-container ltr">
+							{% if info.telegram_id %}
+								<a style='color: #ca9c9c;' href="https://te.me/{{info.telegram_id}}"><i class="fa-brands fa-telegram fa-lg"></i> {{info.telegram_id}}</a><br>
+							{% endif %}
+							{% if info.whatsapp_number %}
+								<a style='color: #ca9c9c;' href="https://wa.me/+98{{info.whatsapp_number}}"><i class="fa-brands fa-whatsapp fa-lg"></i> +98{{info.whatsapp_number}}</a><br>
+							{% endif %}
+						</div><!--social-links-->
+					</div><!--detail-->
+			</div><!--col-md-6-->
+
+			<div class="col-md-6 p-0 text-center">
+				<h2>{% trans "Send A Message" %}</h2>
+				<form name="contactform" action="" method="POST" class=" mt-4">
+				{% csrf_token %}
+					<div class="col-md-12">
+						<label class='text-end' for="text">{% trans "your review" %} :</label>
+						{{form.text|add_class:'u-full-width '}}
+						<button type="submit" name="submit" class="btn bg-success rounded-pill w-75 text-white">{% trans "Submit" %}</button>
+					</div>
+				</form>
+			</div><!--col-md-6-->
+
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock content %}

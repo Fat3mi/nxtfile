@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-21 19:08+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\account\login.html:7 .\account\login.html:66 .\base.html:210
+msgid "Login"
+msgstr "ورود"
+
+#: .\account\login.html:44
+msgid "Login Form"
+msgstr "فرم ورود"
+
+#: .\account\login.html:48
+msgid "email :"
+msgstr "ایمیل :"
+
+#: .\account\login.html:54
+msgid "password :"
+msgstr "رمز عبور :"
+
+#: .\account\login.html:60
+msgid "remember me :"
+msgstr "مرا به خاطر داشته باش"
+
+#: .\account\login.html:70
+msgid "dont have account ! Sign up"
+msgstr "حساب ندارید ! ثبت نام"
+
+#: .\account\logout.html:3 .\account\logout.html:13
+msgid "logout"
+msgstr "خروج"
+
+#: .\account\logout.html:9
+msgid "Logout Page !"
+msgstr "صفحه ی خروج"
+
+#: .\account\logout.html:12
+msgid "are you sure to logout?"
+msgstr "از خروج مطمئنید؟"
+
+#: .\account\signup.html:7 .\account\signup.html:46 .\base.html:80
+#: .\base.html:213
+msgid "SignUp"
+msgstr "ثبت نام"
+
+#: .\account\signup.html:82
+msgid "Signup"
+msgstr "ثبت نام"
+
+#: .\account\signup.html:89
+msgid "i have an account"
+msgstr "از قبل حساب دارم"
+
+#: .\base.html:6
+msgid "bookstore"
+msgstr "کتاب فروشی"
+
+#: .\base.html:76
+msgid "Hi"
+msgstr "سلام"
+
+#: .\base.html:77 .\base.html:206
+msgid "Logout"
+msgstr "خروج"
+
+#: .\base.html:79
+msgid "login"
+msgstr "ورود"
+
+#: .\base.html:119 .\base.html:186
+msgid "Home"
+msgstr "خانه"
+
+#: .\base.html:120
+msgid "Shop"
+msgstr "فروشگاه"
+
+#: .\base.html:121 .\base.html:220
+msgid "Orders"
+msgstr "سفارشات"
+
+#: .\base.html:122
+msgid "About"
+msgstr "درباره ما"
+
+#: .\base.html:123
+msgid "Contact"
+msgstr "ارتباط با ما"
+
+#: .\base.html:164
+msgid "Follow Us"
+msgstr "ما را دنبال کنید"
+
+#: .\base.html:183
+msgid "pages"
+msgstr "صفحات"
+
+#: .\base.html:189
+msgid "Books List"
+msgstr "لیست کتاب ها"
+
+#: .\base.html:192
+msgid "About Us"
+msgstr "درباره ما"
+
+#: .\base.html:202
+msgid "My account"
+msgstr "حساب من"
+
+#: .\base.html:217
+msgid "Cart"
+msgstr "سبد خرید"

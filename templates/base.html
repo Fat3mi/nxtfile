@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+	<html lang="en">
+	<head>
+		<title>{% block title %}{% trans "bookstore" %}{% endblock title %}</title>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="author" content="">
+	    <meta name="keywords" content="">
+	    <meta name="description" content="">
+
+        <link rel="icon" type="image/png" href="{% static 'images/icons/book.png' %}"/>
+	    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'icomoon/icomoon.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/vendor.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.min.css' %}">
+
+        
+
+		<!-- script
+		================================================== -->
+		<script src="{% static 'js/modernizr.js' %}"></script>
+            <style>
+                @font-face {
+                    font-family: "yekan";
+                    src: url("{% static 'fonts/Qs_Iranyekan bold.ttf' %}");
+                }
+                body,h1,h2,h3,h4,h5,h6,span,a,p {
+                font-family: "yekan";
+                color:white;
+                } 
+                .stellarnav li a{
+                    color:white;
+                } 
+                .rtl{
+                    direction:rtl;
+                }
+                .ltr{
+                    direction:ltr;
+                }
+                .logout:hover{
+                    color:red;
+                }
+                .login:hover{
+                    color:green;
+                }
+                i:hover{
+                    color:gold;
+                    transition:color 0.5s;
+                }
+                i{
+                    color:white;
+                }
+                footer{
+                    background-color: #db7f2b;
+                }
+                a{
+                    text-decoration:none;
+                }
+                .card{
+                    background-color: #626262;
+                }
+            </style>
+	</head>
+
+<body>
+
+<div id="header-wrap">
+	
+	<div class="top-content">
+		<div class="container-fluid">
+			<div class="row">
+                <div class="col-md-6">
+				</div>
+				<div class="col-md-6">
+					<div class="right-element">
+                        {% if request.user.is_authenticated %}
+                        <span> {{request.user.username}} / </span>
+						<a href="{% url 'account_logout' %}" class="user-account for-buy logout"><span>{% trans "Logout" %}</span></a>
+						{% if request.user.is_superuser %}
+						<a href="/admin/" class="user-account for-buy logout"><span>{% trans "Admin" %}</span></a>
+						{% endif %}
+                        {% else %}
+                        <a href="{% url 'account_login' %}" class="user-account for-buy login"><span>{% trans "login" %}</span></a>
+						<a href="{% url 'account_signup' %}" class="user-account for-buy login"><span>{% trans "SignUp" %}</span></a>
+                        {% endif %}
+						<a href="{% url 'cart_view' %}" class="cart for-buy"><i class="fa-solid fa-cart-shopping"></i> <span class='badge bg-danger'>{{cart|length}}</span></a>
+
+						<div class="action-menu">
+
+							<div class="search-bar">
+								<a style='padding-left:13px;' href="#" class="search-button search-toggle" data-selector="#header-wrap">
+									<i class="fa-solid fa-magnifying-glass text-dark"></i>
+								</a>
+								<form action="{% url 'search' %}" role="search" method="get" class="search-box">
+									<input name='search' class="search-field text search-input" placeholder="Search" type="search">
+								</form>
+							</div>
+						</div>
+
+					</div><!--top-right-->
+				</div>
+				
+			</div>
+		</div>
+	</div><!--top-content-->
+
+	<header id="header">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-2">
+					<div class="text-center main-logo">
+						<a href="{% url 'home' %}"><img style='width:86px;height:86px;' class='rounded-circle ' src="{{info.logo.url}}" alt="{{info.sitename}} logo"></a>
+					</div>
+
+				</div>
+
+				<div class="col-md-10">
+					
+					<nav id="navbar">
+						<div class="main-menu stellarnav">
+							<ul style='background-color: #626262;' class="menu-list rtl">
+								<li class="menu-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a class="nav-link" href="{% url 'home' %}" data-effect="Home">{% trans "Home" %}</a></li>
+								<li class="menu-item {% if request.resolver_match.url_name == 'booklist' %}active{% endif %}"><a href="{% url 'booklist' %}" class="nav-link" data-effect="Shop">{% trans "Shop" %}</a></li>
+								<li class="menu-item {% if request.resolver_match.url_name == 'latest-blog' %}active{% endif %}"><a href="{% url 'userorders' %}" class="nav-link" data-effect="Articles">{% trans "Orders" %}</a></li>
+								<li class="menu-item {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}"><a href="{% url 'about_us' %}" class="nav-link" data-effect="About">{% trans "About" %}</a></li>
+								<li class="menu-item {% if request.resolver_match.url_name == 'contact_us' %}active{% endif %}"><a href="{% url 'contact_us' %}" class="nav-link" data-effect="Contact">{% trans "Contact" %}</a></li>
+							</ul>
+
+							<div class="hamburger">
+				                <span class="bar"></span>
+				                <span class="bar"></span>
+				                <span class="bar"></span>
+				            </div>
+
+						</div>
+					</nav>
+
+				</div>
+
+			</div>
+		</div>
+	</header>
+    {% block content %}
+    {% endblock content %}
+    <footer class='pt-4' id="footer">
+        <div class="container">
+            <div class="row">
+    
+                <div class="col-md-4">
+                    
+                    <div class="footer-item">
+                        <div class="company-brand">
+                            <a href="{% url 'home' %}"><img style='width:100px;height:100px;' src="{{info.logo.url}}" alt="{{info.sitename}} logo" class="rounded-circle footer-logo"></a>
+                            <p>{{info.description|linebreaks}}</p>
+                            <div>
+								{% if info.phone_number %}
+								<span class='text-dark'><i class="fa-solid fa-phone text-dark"></i> {{info.phone_number}}</span>
+								{% endif %}
+							</div>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="col-md-2">
+                        <div class="footer-menu">
+                            <h5 class='text-dark'>{% trans "Follow Us" %}</h5>
+                            <ul class="menu-list">
+                                {% if info.telegram_id %}
+                                <li>
+                                    <a href="https://te.me/{{info.telegram_id}}"><i class="fa-brands fa-telegram fa-lg text-dark"></i> {{info.telegram_id}}</a>
+                                </li>
+                                {% endif %}
+                                {% if info.whatsapp_number %}
+                                <li>
+                                    <a href="https://wa.me/+98{{info.whatsapp_number}}"><i class="fa-brands fa-whatsapp fa-lg text-dark"></i> +98{{info.whatsapp_number}}</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+    
+                </div>
+                <div class="col-md-2">
+    
+                    <div class="footer-menu">
+                        <h5 class='text-dark'>{% trans "pages" %}</h5>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'home' %}">{% trans "Home" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'booklist' %}">{% trans "Books List" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'about_us' %}">{% trans "About Us" %}</a>
+                            </li>
+
+                        </ul>
+                    </div>
+    
+                </div>
+                <div class="col-md-2">
+    
+                    <div class="footer-menu">
+                        <h5 class='text-dark'>{% trans "My account" %}</h5>
+                        <ul class="menu-list">
+                            {% if request.user.is_authenticated %}
+                                <li class="menu-item">
+                                    <a class='footera' href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+                                </li>
+                            {% else %}
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'account_login' %}">{% trans "Login" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'account_signup' %}">{% trans "SignUp" %}</a>
+                            </li>
+                            {% endif %}
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'cart_view' %}">{% trans "Cart" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class='footera' href="{% url 'userorders' %}">{% trans "Orders" %}</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                </div>
+    
+            </div>
+            <!-- / row -->
+    
+        </div>
+    </footer>
+    
+    <script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+
+    
+    </body>
+    </html>	

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanizelib %}
+{% load i18n %}
+{% block title %}{% trans "bookstore" %}{% endblock title %}
+
+{% block content %}
+</div><!--header-wrap-->
+
+
+
+<section id="featured-books">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+			<div class="section-header align-center">
+				<h2 class="section-title">{% trans "Latest Books" %}</h2>
+			</div>
+
+			<div class="product-list" data-aos="fade-up">
+				<div class="row rtl">
+					{% for last_book in last_books %}
+					<div class="col-md-3">
+						<a href="{% url 'bookdetail' last_book.id %}">
+							<figure class="product-style">
+								<img style='height:347px;' src="{{last_book.cover.url}}" alt="Books" class="product-item">
+									
+								<figcaption>
+									<h3 class='text-white'>{{last_book.title}}</h3>
+									<p class='text-white'> {% trans "author" %} : {{last_book.author}}</p>
+									{% if last_book.is_discount %}
+									<del class="item-price text-danger">{{last_book.price|intcomma}} تومان</del>
+									<div class="item-price ">{{last_book.price_with_discount|intcomma}} تومان</div>
+									{% else %}
+									<div class="item-price">{{last_book.price|intcomma}} تومان</div>
+									{% endif %}
+								</figcaption>
+							</figure>
+						</a>
+					</div>
+					{% endfor %}
+
+			    </div><!--ft-books-slider-->				
+			</div><!--grid-->
+
+
+			</div><!--inner-content-->
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="btn-wrap align-right">
+					<a href="{% url 'booklist' %}" class="btn-accent-arrow">{% trans "View all Books" %} <i class="icon icon-ns-arrow-right"></i></a>
+				</div>
+				
+			</div>		
+		</div>
+	</div>
+</section>
+
+
+<section id="subscribe">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-8 col-md-offset-2">
+				<div class="row rtl">
+
+					<div class="col-md-6">
+
+						<div class="title-element">
+							<h2 class="section-title divider">{% trans "About Our BookStore" %}</h2>
+						</div>
+
+					</div>
+					<div class="col-md-6">
+
+						<div class="subscribe-content" data-aos="fade-up">
+							<p>{{info.description|linebreaks|truncatewords:10}}</p>
+							<div class='ltr'>
+								{% if info.telegram_id %}
+								<a href="https://te.me/{{info.telegram_id}}"><i class="fa-brands fa-telegram fa-lg"></i> {{info.telegram_id}}</a><br>
+								{% endif %}
+								{% if info.whatsapp_number %}
+								<a href="https://wa.me/+98{{info.whatsapp_number}}"><i class="fa-brands fa-whatsapp fa-lg"></i> +98{{info.whatsapp_number}}</a><br>
+								{% endif %}
+								{% if info.phone_number %}
+								<a><i class="fa-solid fa-phone fa-lg"></i> {{info.phone_number}}</a>
+								{% endif %}
+							</div>
+						</div>
+
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+
+{% endblock content %}

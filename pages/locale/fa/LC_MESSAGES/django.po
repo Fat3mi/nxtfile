@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-21 19:08+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\apps.py:7
+msgid "pages"
+msgstr "صفحات اصلی"
+
+#: .\models.py:7 .\models.py:30 .\templates\pages\detail.html:19
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\models.py:10
+msgid "Category"
+msgstr "دسته بندی"
+
+#: .\models.py:11
+msgid "Categories"
+msgstr "دسته بندی ها"
+
+#: .\models.py:22
+msgid "title"
+msgstr "تیتر"
+
+#: .\models.py:23
+msgid "summary"
+msgstr "توضیحات"
+
+#: .\models.py:24 .\templates\pages\home.html:31
+msgid "author"
+msgstr "نویسنده"
+
+#: .\models.py:25
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:26
+msgid "is_discount"
+msgstr "ایا تخفیف دارد؟"
+
+#: .\models.py:27
+msgid "price_with_discount"
+msgstr "قیمت با تخفیف"
+
+#: .\models.py:28
+msgid "page count"
+msgstr "تعداد صفحات"
+
+#: .\models.py:29
+msgid "cover"
+msgstr "تصویر"
+
+#: .\models.py:31
+msgid "created"
+msgstr "زمان ایجاد"
+
+#: .\models.py:32
+msgid "edited"
+msgstr "زمان ویرایش"
+
+#: .\models.py:33
+msgid "exist"
+msgstr "موجودی؟"
+
+#: .\models.py:38
+msgid "Book"
+msgstr "کتاب"
+
+#: .\models.py:39
+msgid "Books"
+msgstr "کتاب ها"
+
+#: .\templates\pages\detail.html:5
+msgid "book detail"
+msgstr "جزئیات کتاب"
+
+#: .\templates\pages\detail.html:26
+msgid "description :"
+msgstr "توضیحات :"
+
+#: .\templates\pages\detail.html:45
+msgid "Add to cart"
+msgstr "افزودن به سبد خرید"
+
+#: .\templates\pages\home.html:5
+msgid "bookstore"
+msgstr "فروشگاه کتاب"
+
+#: .\templates\pages\home.html:18
+msgid "Latest Books"
+msgstr "کتاب های اخیر"
+
+#: .\templates\pages\home.html:55
+msgid "View all Books"
+msgstr "دیدن همه ی کتاب ها"
+
+#: .\templates\pages\home.html:74
+msgid "About Our BookStore"
+msgstr "درباره کتاب فروشی ما"
+
+#: .\templates\pages\list.html:5
+msgid "list of books"
+msgstr "لیست کتاب ها"
+
+#: .\templates\pages\list.html:13
+msgid "Shop"
+msgstr "فروشگاه"

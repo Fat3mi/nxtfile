@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "about us" %}{% endblock title %}
+{% block content %}
+
+<div class="site-banner">
+	<div class="banner-content">
+		<div class="container">
+			<div class="row rtl">
+				<div class="col-md-12">			
+					<div class="colored">
+						<h1 class="page-title">{% trans "About Us" %}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!--site-banner-->
+
+
+<section class="padding-large">
+	<div class="container">
+		<div class="row rtl">
+			<div class="col-md-12">
+				
+				<p class='me-3'>{{about.description}}</p>
+			</div>
+			<div class='ltr'>
+				{% if info.telegram_id %}
+				<a href="https://te.me/{{info.telegram_id}}"><i class="fa-brands fa-telegram fa-lg"></i> {{info.telegram_id}}</a><br>
+				{% endif %}
+				{% if info.whatsapp_number %}
+				<a href="https://wa.me/+98{{info.whatsapp_number}}"><i class="fa-brands fa-whatsapp fa-lg"></i> +98{{info.whatsapp_number}}</a><br>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

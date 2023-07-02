@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %} {% trans "all orders" %} {% endblock title %}
+
+{% block content %}
+<section class="h-100" style="background-color: #040408;">
+    <div class="container">
+        <div class="row">
+            {% for order in object_list %}
+                <div class="col-md-3 mb-4">
+                    <div style='background-color: #e9e9e9;' class="card me-3 text-center">
+                        <div class="card-body">
+                        <h5 class="card-title text-dark">{% trans "Order" %} {{order.id}}</h5>
+                        <p class="card-text text-dark">{% trans "You can pay anytime you want" %} </p>
+                        <a href="{% url 'order_detail' order.id %}" class="btn bg-success rounded-pill">{% trans "watch" %}</a>
+                        <a href="{% url 'order_delete' order.id %}" class="btn bg-danger rounded-pill">{% trans "Delete" %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+  </section>
+{% endblock content %}
