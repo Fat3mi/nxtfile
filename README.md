@@ -4,7 +4,7 @@ ____
 # My Django Project
 
 ## Description
-This is a Django project for [brief description].
+This is a Django project for Selling Books
 
 ## Installation
 
